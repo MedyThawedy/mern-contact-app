@@ -1,25 +1,26 @@
 import { MongoClient } from "mongodb"
+import '../config.js';
 
-const URL = process.env.MONGODB_URL
+const URI = process.env.MONGODB_URI
 const DB_NAME = process.env.DB_NAME
 
-const client = new MongoClient(URL)
+const client = new MongoClient(URI)
 
 let db
 
-export const getDb = () => {
-    return new Promise((resolved, reject) => {
-        if (db) resolved(db)
-        client.connect()
-            .then(client => {
-                console.log('Mongo DB Connected successfully to server');
-                return client.db(DB_NAME)
-            })
-            .then(DbClient => {
-                db = DbClient
-                resolved(DbClient)
-            })
-            .catch(err => reject(err))
-    })
+export const getDb = async () => {
+    try {
+        await client.connect();
+        console.log('1. Mongo DB Connected successfully to server');
+        db = client.db(DB_NAME)
+        console.log('2. db = ', db)
+        return db;
+
+    } catch (err) {
+        console.log('DB Error - DB Connection not possible! ');
+        console.log(err);
+        return err;
+    }
 }
+
 
