@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function Contact({ contact }) {
+function Contact( props) {
+
+    //const {contactid} = useParams()
+
     return (
         <article>
-            <Link key={contact.id} to={`/details/${contact.id}`} >
-                <p>{contact.name}</p>
-                <p>{contact.nr}</p>
+            <Link to={`/details/${props._id}`} >
+            <p>{props._id}</p>
+                <p>{props.name}</p>
+                <p>{props.nr}</p>
             </Link>
         </article>
     );

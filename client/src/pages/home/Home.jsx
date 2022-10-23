@@ -2,7 +2,7 @@
 
 import Header from '../../components/header/Header';
 import Contacts from '../../components/contacts/Contacts';
-import Navigation from '../../components/navigation/Navigation';
+
 
 
 const Home = () => {
@@ -10,7 +10,6 @@ const Home = () => {
         <div>
             <Header />
             <Contacts />
-            <Navigation />
         </div>
     );
 }

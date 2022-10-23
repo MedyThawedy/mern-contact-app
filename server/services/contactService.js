@@ -9,7 +9,6 @@ export const getAll = async (req, res) => {
     let responseWithData = await db.collection('contact').find().toArray()
     console.log('4. res with data =', responseWithData)
     return responseWithData;
-
 }
 
 export const createContactDocument = async (req, res) => {

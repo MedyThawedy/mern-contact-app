@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  min-height: 60vh;
+}
+
+#root > div > div{
+  min-height: 60vh;
+}
+
+#root > div > div > article a{
+  display:inline-flex;
+  gap: 20px;
 }
 
 .App-logo {
