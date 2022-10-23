@@ -23,12 +23,16 @@ const Contacts = () => {
     };
 
     return (
-        <div>
-            {JSON.stringify(contacts.data)}
-            <hr />
-            {contacts.map((item) => { return <p> {item._id}, {item.name}, {item.nr}</p> })}
-            {/*<Contact key={contact.id} name={contact.name} nr={contact.nr} />*/}
-        </div>
+        <>
+            <h1>Contacts</h1>
+            <div>
+                {JSON.stringify(contacts.data)}
+                <hr />mongodb
+                {contacts.map((item) => { return <p> {item._id}, {item.name}, {item.nr}</p> })}
+                {/*<Contact key={contact.id} name={contact.name} nr={contact.nr} />*/}
+            </div>
+        </>
+
     );
 }
 
